@@ -1,42 +1,124 @@
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
 
-@media (prefers-color-scheme: dark) {
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. */
+
+@layer base {
   :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+    --background: 220 100% 4%;
+    --foreground: 45 100% 85%;
+
+    --card: 220 50% 8%;
+    --card-foreground: 45 100% 85%;
+
+    --popover: 220 50% 8%;
+    --popover-foreground: 45 100% 85%;
+
+    --primary: 45 100% 60%;
+    --primary-foreground: 220 100% 4%;
+
+    --secondary: 220 50% 12%;
+    --secondary-foreground: 45 100% 85%;
+
+    --muted: 220 50% 12%;
+    --muted-foreground: 45 50% 70%;
+
+    --accent: 45 100% 50%;
+    --accent-foreground: 220 100% 4%;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 220 50% 20%;
+    --input: 220 50% 15%;
+    --ring: 45 100% 60%;
+
+    --radius: 0.75rem;
+
+    --sidebar-background: 220 100% 4%;
+    --sidebar-foreground: 45 100% 85%;
+    --sidebar-primary: 45 100% 60%;
+    --sidebar-primary-foreground: 220 100% 4%;
+    --sidebar-accent: 220 50% 12%;
+    --sidebar-accent-foreground: 45 100% 85%;
+    --sidebar-border: 220 50% 20%;
+    --sidebar-ring: 45 100% 60%;
   }
 }
 
-html,
-body {
-  max-width: 100vw;
-  overflow-x: hidden;
-}
-
-body {
-  color: var(--foreground);
-  background: var(--background);
-  font-family: Arial, Helvetica, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
-
-* {
-  box-sizing: border-box;
-  padding: 0;
-  margin: 0;
-}
-
-a {
-  color: inherit;
-  text-decoration: none;
-}
-
-@media (prefers-color-scheme: dark) {
-  html {
-    color-scheme: dark;
+@layer base {
+  * {
+    @apply border-border;
   }
+
+  body {
+    @apply bg-background text-foreground;
+    font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  }
+}
+
+@layer utilities {
+  .text-gold {
+    @apply text-primary;
+  }
+  
+  .bg-gold {
+    @apply bg-primary;
+  }
+  
+  .gradient-gold {
+    background: linear-gradient(135deg, #FFD700 0%, #FFA500 50%, #FFD700 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+  
+  .shadow-gold {
+    box-shadow: 0 4px 20px rgba(255, 215, 0, 0.3);
+  }
+  
+  .border-gold {
+    @apply border-primary;
+  }
+  
+  .hover-gold {
+    transition: all 0.3s ease;
+  }
+  
+  .hover-gold:hover {
+    @apply shadow-gold transform scale-105;
+  }
+}
+
+/* Animation keyframes */
+@keyframes fade-in-up {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes gold-shimmer {
+  0% {
+    background-position: -200% 0;
+  }
+  100% {
+    background-position: 200% 0;
+  }
+}
+
+.animate-fade-in-up {
+  animation: fade-in-up 0.8s ease-out;
+}
+
+.shimmer {
+  background: linear-gradient(90deg, transparent, rgba(255, 215, 0, 0.4), transparent);
+  background-size: 200% 100%;
+  animation: gold-shimmer 2s ease-in-out infinite;
 }
