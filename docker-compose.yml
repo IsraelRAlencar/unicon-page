@@ -3,7 +3,7 @@ services:
     build:
       context: .
       dockerfile: Dockerfile
-    container_name: gc-landing-page
+    container_name: unicon-landing-page
     restart: unless-stopped
     ports:
       - "127.0.0.1:7778:7778"
