@@ -1,0 +1,9 @@
+services:
+  next-app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: gc-landing-page
+    restart: unless-stopped
+    ports:
+      - "127.0.0.1:7778:7778"
