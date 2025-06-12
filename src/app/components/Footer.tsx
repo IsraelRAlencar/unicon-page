@@ -1,6 +1,6 @@
 'use client'
 
-import { Instagram, MapPin, Phone } from 'lucide-react'
+import { Instagram, MapPin, MessageCircle, Phone } from 'lucide-react'
 import Image from 'next/image';
 import React from 'react'
 
@@ -69,9 +69,13 @@ export default function Footer() {
           <div className="space-y-4">
             <h4 className="text-lg font-semibold text-foreground">Contato</h4>
             <div className="space-y-3">
-              <div className="flex items-center space-x-3">
+              <div onClick={() => window.open("tel:+556734242406")} className="flex items-center space-x-3 hover:cursor-pointer">
                 <Phone className="h-4 w-4 text-primary" />
                 <span className="text-sm text-muted-foreground">(67) 3424-2406</span>
+              </div>
+              <div onClick={() => window.open("https://api.whatsapp.com/send?phone=5567984316015")} className="flex items-center space-x-3 hover:cursor-pointer">
+                <MessageCircle className="h-4 w-4 text-primary" />
+                <span className="text-sm text-muted-foreground">(67) 98431-6015</span>
               </div>
               <div className="flex items-start space-x-3">
                 <MapPin className="h-4 w-4 text-primary mt-0.5" />

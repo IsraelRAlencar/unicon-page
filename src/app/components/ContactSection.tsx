@@ -1,11 +1,12 @@
 'use client'
 
-import React, { useState } from 'react'
+import React, { startTransition, useState } from 'react'
 import { Card, CardContent } from './ui/Card'
-import { Clock, Mail, MapPin, MessageCircle, Phone } from 'lucide-react'
+import { Clock, Mail, MapPin, MessageCircle, Phone, Smartphone } from 'lucide-react'
 import { Button } from './ui/Button'
 import { Input } from './ui/Input';
 import { Textarea } from './ui/Textare';
+import { sendContactEmail } from './actions'
 
 export default function ContactSection() {
     const [formData, setFormData] = useState({ name: '', email: '', phone: '', message: '' });
@@ -21,13 +22,21 @@ export default function ContactSection() {
     const handleSubmit = (e: React.FormEvent) => {
         e.preventDefault();
         console.log('Form submitted:', formData);
-        setFormData({ name: '', email: '', phone: '', message: '' });
-        alert('Mensagem enviada com sucesso! Entraremos em contato em breve.');
+        
+        startTransition(async () => {
+            const result = await sendContactEmail(formData);
+
+            if (result.success) {
+              alert('Mensagem enviada com sucesso! Entraremos em contato em breve.');
+            } else {
+              alert('Erro ao enviar a mensagem. Por favor, tente novamente ou entre em contato por outro canal.');
+            }
+        });
     };
 
     const handleWhatsApp = () => {
         const message = encodeURIComponent(`Olá! Gostaria de saber mais sobre os serviços da Unicon Consultoria e Contabilidade.`);
-        window.open(`https://wa.me/556734242406?text=${message}`, '_blank');
+        window.open(`https://wa.me/5567984316015?text=${message}`, '_blank');
     };
 
   return (
@@ -85,7 +94,7 @@ export default function ContactSection() {
                   <Textarea name="message" value={formData.message} onChange={handleInputChange} placeholder="Conte-nos sobre sua empresa e como podemos ajudar..." rows={4} required className="bg-input border-border" />
                 </div>
 
-                <Button  type="submit"  className="w-full bg-primary text-primary-foreground hover:bg-primary/90 shadow-gold" >
+                <Button type="submit" className="w-full bg-primary text-primary-foreground hover:bg-primary/90 shadow-gold" >
                   Enviar Mensagem
                 </Button>
 
@@ -111,12 +120,19 @@ export default function ContactSection() {
                 <h3 className="text-2xl font-bold text-foreground mb-6">Informações de Contato</h3>
                 
                 <div className="space-y-6">
-                  <div className="flex items-start space-x-4">
-                    <Phone className="h-6 w-6 text-primary mt-1" />
-                    <div>
-                      <h4 className="font-semibold text-foreground">Telefone</h4>
-                      <p className="text-muted-foreground">(67) 3424-2406</p>
+                  <div onClick={() => window.open("tel:+556734242406")} className="flex items-start justify-start space-x-4 hover:cursor-pointer">
+                      <Phone className="h-6 w-6 text-primary mt-1" />
+                      <div>
+                        <h4 className="font-semibold text-foreground">Telefone</h4>
+                        <p className="text-muted-foreground">(67) 3424-2406</p>
+                      </div>
                     </div>
+                    <div onClick={() => window.open("https://api.whatsapp.com/send?phone=5567984316015")} className="flex items-start space-x-4 hover:cursor-pointer">
+                      <MessageCircle className="h-6 w-6 text-primary mt-1" />
+                      <div>
+                        <h4 className="font-semibold text-foreground">WhatsApp</h4>
+                        <p className="text-muted-foreground">(67) 98431-6015</p>
+                      </div>
                   </div>
 
                   <div className="flex items-start space-x-4">
@@ -129,7 +145,7 @@ export default function ContactSection() {
                         rel="noopener noreferrer"
                         className="text-primary hover:text-primary/80 transition-colors"
                       >
-                        @unicon_consultoria
+                        contato@uniconcontabil.com.br
                       </a>
                     </div>
                   </div>
