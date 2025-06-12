@@ -207,7 +207,7 @@ export default function ContactSection() {
               <CardContent className="p-0">
                 <div className="h-64 bg-muted flex items-center justify-center">
                   <iframe
-                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3721.5!2d-54.8!3d-22.2!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMjLCsDEyJzAwLjAiUyA1NMDCNDQ4JzAwLjAiVw!5e0!3m2!1spt-BR!2sbr!4v1609459200000!5m2!1spt-BR!2sbr"
+                    src="https://www.google.com/maps/place/Unicon+Consultoria+e+Contabilidade/data=!4m2!3m1!1s0x0:0x42fd0e2012c6d0fd?sa=X&ved=1t:2428&ictx=111"
                     width="100%"
                     height="256"
                     style={{ border: 0 }}
@@ -229,7 +229,7 @@ export default function ContactSection() {
               <CardContent className="p-0">
                 <div className="h-64 bg-muted flex items-center justify-center">
                   <iframe
-                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3723.8!2d-54.6!3d-20.4!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMjDCsDI0JzAwLjAiUyA1NMDCNDA2JzAwLjAiVw!5e0!3m2!1spt-BR!2sbr!4v1609459200000!5m2!1spt-BR!2sbr"
+                    src="www.google.com/maps/place/UNICON+-+Consultoria,+Auditoria+e+Contabilidade/data=!4m2!3m1!1s0x0:0x9e7d6cfeb598d648?sa=X&ved=1t:2428&ictx=111"
                     width="100%"
                     height="256"
                     style={{ border: 0 }}

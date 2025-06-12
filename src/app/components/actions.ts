@@ -20,7 +20,7 @@ export async function sendContactEmail(formData: FormData) {
     try {
         await resend.emails.send({
             from: 'israelalencar@gecontrolsistemas.com.br',
-            to: ['unicon@uniconcontabil.com.br', 'joaohenrique@uniconcontabil.com.br', 'contato@uniconcontabil.com.br', 'israelalencardev@gmail.com'],
+            to: ['unicon@uniconcontabil.com.br', 'joaohenrique@uniconcontabil.com.br', 'contato@uniconcontabil.com.br', 'israelalencardev@gmail.com', 'joaomondiniunicon@gmail.com'],
             subject: `Nova Solicitação de Consultoria - ${name}`,
             replyTo: email,
             html: `
