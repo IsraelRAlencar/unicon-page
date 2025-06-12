@@ -3,6 +3,7 @@
 import React, { useEffect, useState } from 'react'
 import { Button } from './ui/Button';
 import { Menu, X } from 'lucide-react';
+import Image from 'next/image';
 
 export default function Header() {
     const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -28,13 +29,7 @@ export default function Header() {
       <div className="container mx-auto px-4 py-4">
         <div className="flex items-center justify-between">
           <div className="flex items-center space-x-3">
-            <div className="w-12 h-12 bg-primary rounded-lg flex items-center justify-center">
-              <span className="text-2xl font-bold text-primary-foreground">U</span>
-            </div>
-            <div>
-              <h1 className="text-xl font-bold gradient-gold">UNICON</h1>
-              <p className="text-xs text-muted-foreground">Consultoria & Contabilidade</p>
-            </div>
+            <Image onClick={() => scrollToSection('home')} className='mx-auto hover:cursor-pointer' src="/images/logo_only.png" alt="Logo" width={60} height={96} />
           </div>
           <nav className="hidden md:flex items-center space-x-8">
             <button onClick={() => scrollToSection('home')} className="text-foreground hover:text-primary transition-colors">

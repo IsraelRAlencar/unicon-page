@@ -84,7 +84,7 @@ export default function AboutSection() {
         </div>
 
         {/* Frase Destaque */}
-        <div className="text-center py-16 relative">
+        <div className="text-center py-8 relative">
           <div className="max-w-4xl mx-auto">
             <blockquote className="text-3xl md:text-4xl font-bold text-foreground leading-relaxed">
               "A excelência começa dentro de casa.{' '}

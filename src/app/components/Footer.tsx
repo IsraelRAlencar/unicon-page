@@ -1,6 +1,7 @@
 'use client'
 
 import { Instagram, MapPin, Phone } from 'lucide-react'
+import Image from 'next/image';
 import React from 'react'
 
 export default function Footer() {
@@ -14,29 +15,23 @@ export default function Footer() {
 
   return (
     <footer className="bg-secondary border-t border-border">
-      <div className="container mx-auto px-4 py-16">
+      <div className="container mx-auto px-4 py-8">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
           {/* Company Info */}
           <div className="space-y-4">
             <div className="flex items-center space-x-3">
-              <div className="w-10 h-10 bg-primary rounded-lg flex items-center justify-center">
-                <span className="text-lg font-bold text-primary-foreground">U</span>
-              </div>
-              <div>
-                <h3 className="text-lg font-bold text-primary">UNICON</h3>
-                <p className="text-xs text-muted-foreground">Consultoria & Contabilidade</p>
-              </div>
+              <Image onClick={() => scrollToSection('home')} className='mx-auto hover:cursor-pointer' src="/images/logo_unicon.png" alt="Logo" width={200} height={96} />
             </div>
-            <p className="text-sm text-muted-foreground leading-relaxed">
+            {/* <p className="text-sm text-muted-foreground leading-relaxed">
               Facilitamos a rotina da sua empresa para que você cresça exponencialmente. 
               Mais de 30 anos de experiência e atendimento nacional.
-            </p>
+            </p> */}
           </div>
 
           {/* Quick Links */}
           <div className="space-y-4">
             <h4 className="text-lg font-semibold text-foreground">Links Rápidos</h4>
-            <nav className="flex flex-col space-y-2">
+            <nav className="flex items-center space-x-2">
               <button 
                 onClick={() => scrollToSection('home')}
                 className="text-muted-foreground hover:text-primary transition-colors text-left"
@@ -90,7 +85,8 @@ export default function Footer() {
           {/* Social Media */}
           <div className="space-y-4">
             <h4 className="text-lg font-semibold text-foreground">Redes Sociais</h4>
-            <div className="flex space-x-4">
+            <div className="flex gap-2">
+              <div className="flex space-x-4">
               <a
                 href="https://www.instagram.com/unicon_consultoria/"
                 target="_blank"
@@ -103,19 +99,6 @@ export default function Footer() {
             <p className="text-sm text-muted-foreground">
               Siga-nos no Instagram para dicas e novidades sobre contabilidade e gestão empresarial.
             </p>
-          </div>
-        </div>
-
-        {/* Bottom Bar */}
-        <div className="mt-12 pt-8 border-t border-border">
-          <div className="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
-            <p className="text-sm text-muted-foreground text-center md:text-left">
-              © {currentYear} Unicon Consultoria e Contabilidade. Todos os direitos reservados.
-            </p>
-            <div className="text-sm text-muted-foreground">
-              <span>Desenvolvido com </span>
-              <span className="text-primary">♥</span>
-              <span> para impulsionar seu negócio</span>
             </div>
           </div>
         </div>

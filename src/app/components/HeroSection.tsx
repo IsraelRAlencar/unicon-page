@@ -34,13 +34,6 @@ export default function HeroSection() {
         <div className="max-w-4xl mx-auto space-y-8">
           {/* Company Name */}
           <div className="animate-fade-in-up" style={{ animationDelay: '0.2s' }}>
-            {/* <h1 className="text-5xl md:text-7xl font-bold gradient-gold mb-4">
-              UNICON
-            </h1>
-            <p className="text-xl md:text-2xl text-muted-foreground font-light">
-              Consultoria & Contabilidade
-            </p> */}
-            
             <Image className='mx-auto' src="/images/logo_unicon.png" alt="Logo" width={500} height={500} />
           </div>
 
